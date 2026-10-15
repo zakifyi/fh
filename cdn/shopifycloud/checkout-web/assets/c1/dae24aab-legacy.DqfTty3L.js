@@ -1,0 +1,1 @@
+System.register(["./2c1ab0fe-legacy.BZ7_ik71.js"],function(e,t){"use strict";var n;return{setters:[e=>{n=e.l}],execute:function(){e("r",function(e){return function(e){return e&&"object"==typeof e&&e instanceof n}(e)?e.value:e})}}});
