@@ -87,7 +87,7 @@
 <meta data-currency="USD" data-environment="production" data-locale="en_US" data-paypal-v4="true" data-shop-id="20606331" data-venmo-supported="true" id="in-context-paypal-metadata"/>
 <link href="../.well-known/ucp" rel="ucp" version="2026-08-25"/><link href="protein.atom" rel="alternate" title="Feed" type="application/atom+xml"/>
 <link href="protein.oembed" rel="alternate" type="application/json+oembed">
-<script async="async" src="../checkouts/internal/preloads.js%3Flocale=en-US&amp;default_configuration_id=4240048305"></script>
+<script async="async" src="../checkouts/internal/preloads.js?locale=en-US&amp;default_configuration_id=4240048305"></script>
 <link crossorigin="anonymous" href="https://shop.app" rel="preconnect"/>
 <script async="async" crossorigin="anonymous" src="https://shop.app/checkouts/internal/preloads.js?locale=en-US&amp;default_configuration_id=4240048305&amp;shop_id=20606331"></script>
 <script id="apple-pay-shop-capabilities" type="application/json">{"shopId":20606331,"countryCode":"US","currencyCode":"USD","merchantCapabilities":["supports3DS"],"merchantId":"gid:\/\/shopify\/Shop\/20606331","merchantName":"GHOST","requiredBillingContactFields":["postalAddress","email"],"requiredShippingContactFields":["postalAddress","email"],"shippingType":"shipping","supportedNetworks":["visa","masterCard","amex","discover","elo","jcb"],"total":{"type":"pending","label":"GHOST","amount":"1.00"},"shopifyPaymentsEnabled":true,"supportsSubscriptions":true}</script>
@@ -158,7 +158,7 @@ Shopify.SignInWithShop.User.recognized = false;</script>
 <script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
 <script id="captcha-bootstrap">!function(){'use strict';const t='contact',e='account',n='new_comment',o=[[t,t],['blogs',n],['comments',n],[t,'customer']],c=[[e,'customer_login'],[e,'guest_login'],[e,'recover_customer_password'],[e,'create_customer']],r=t=>t.map((([t,e])=>`form[action*='/${t}']:not([data-nocaptcha='true']) input[name='form_type'][value='${e}']`)).join(','),a=t=>()=>t?[...document.querySelectorAll(t)].map((t=>t.form)):[];function s(){const t=[...o],e=r(t);return a(e)}const i='password',u='form_key',d=['recaptcha-v3-token','g-recaptcha-response','h-captcha-response',i],f=()=>{try{return window.sessionStorage}catch{return}},m='__shopify_v',_=t=>t.elements[u];function p(t,e,n=!1){try{const o=window.sessionStorage,c=JSON.parse(o.getItem(e)),{data:r}=function(t){const{data:e,action:n}=t;return t[m]||n?{data:e,action:n}:{data:t,action:n}}(c);for(const[e,n]of Object.entries(r))t.elements[e]&&(t.elements[e].value=n);n&&o.removeItem(e)}catch(o){console.error('form repopulation failed',{error:o})}}const l='form_type',E='cptcha';function T(t){t.dataset[E]=!0}const w=window,h=w.document,L='Shopify',v='ce_forms',y='captcha';let A=!1;((t,e)=>{const n=(g='f06e6c50-85a8-45c8-87d0-21a2b65856fe',I='https://cdn.shopify.com/shopifycloud/storefront-forms-hcaptcha/ce_storefront_forms_captcha_hcaptcha.v1.5.3.iife.js',D={infoText:'Protected by hCaptcha',privacyText:'Privacy',termsText:'Terms'},(t,e,n)=>{const o=w[L][v],c=o.bindForm;if(c)return c(t,g,e,D).then(n);var r;o.q.push([[t,g,e,D],n]),r=I,A||(h.body.append(Object.assign(h.createElement('script'),{id:'captcha-provider',async:!0,src:r})),A=!0)});var g,I,D;w[L]=w[L]||{},w[L][v]=w[L][v]||{},w[L][v].q=[],w[L][y]=w[L][y]||{},w[L][y].protect=function(t,e){n(t,void 0,e),T(t)},Object.freeze(w[L][y]),function(t,e,n,w,h,L){const[v,y,A,g]=function(t,e,n){const i=e?o:[],u=t?c:[],d=[...i,...u],f=r(d),m=r(i),_=r(d.filter((([t,e])=>n.includes(e))));return[a(f),a(m),a(_),s()]}(w,h,L),I=t=>{const e=t.target;return e instanceof HTMLFormElement?e:e&&e.form},D=t=>v().includes(t);t.addEventListener('submit',(t=>{const e=I(t);if(!e)return;const n=D(e)&&!e.dataset.hcaptchaBound&&!e.dataset.recaptchaBound,o=_(e),c=g().includes(e)&&(!o||!o.value);(n||c)&&t.preventDefault(),c&&!n&&(function(t){try{if(!f())return;!function(t){const e=f();if(!e)return;const n=_(t);if(!n)return;const o=n.value;o&&e.removeItem(o)}(t);const e=Array.from(Array(32),(()=>Math.random().toString(36)[2])).join('');!function(t,e){_(t)||t.append(Object.assign(document.createElement('input'),{type:'hidden',name:u})),t.elements[u].value=e}(t,e),function(t,e){const n=f();if(!n)return;const o=[...t.querySelectorAll(`input[type='${i}']`)].map((({name:t})=>t)),c=[...d,...o],r={};for(const[a,s]of new FormData(t).entries())c.includes(a)||(r[a]=s);n.setItem(e,JSON.stringify({[m]:1,action:t.action,data:r}))}(t,e)}catch(e){console.error('failed to persist form',e)}}(e),e.submit())}));const S=(t,e)=>{t&&!t.dataset[E]&&(n(t,e.some((e=>e===t))),T(t))};for(const o of['focusin','change'])t.addEventListener(o,(t=>{const e=I(t);D(e)&&S(e,y())}));const B=e.get('form_key'),M=e.get(l),P=B&&M;t.addEventListener('DOMContentLoaded',(()=>{const t=y();if(P)for(const e of t)e.elements[l].value===M&&p(e,B);[...new Set([...A(),...v().filter((t=>'true'===t.dataset.shopifyCaptcha))])].forEach((e=>S(e,t)))}))}(h,new URLSearchParams(w.location.search),n,t,e,['guest_login'])})(!0,!0)}();</script>
 <script crossorigin="anonymous" data-source-attribution="shopify.loadfeatures" defer="defer" integrity="sha256-JjoPp5ZfB1sSAs5SQaol1x1GgvveM+BgmRzyDexInEQ=" src="../cdn/shopifycloud/storefront/assets/storefront/load_feature-1bd60354.js"></script>
-<script>(function () {var userAgent = navigator.userAgent;var platform = navigator.platform;var maxTouchPoints = navigator.maxTouchPoints || 0;var isIOS = /iPad|iPhone|iPod/.test(platform) || (platform === 'MacIntel' && maxTouchPoints > 1);var isMacSafari = platform.indexOf('Mac') === 0 && /Safari/.test(userAgent) && !/Chrome|Chromium|CriOS|FxiOS|Edg|OPR|Android/.test(userAgent);var isAppleSafari = isIOS || isMacSafari;if (isAppleSafari) {fetch('/sf_private_access_tokens' + location.search).catch(function () {});}function browserMajorVersion(pattern) {var match = userAgent.match(pattern);return match ? parseInt(match[1], 10) : null;}function shouldLoadAutosizesPolyfill() {if (!window.PerformanceObserver?.supportedEntryTypes?.includes('paint')) {return false;}var chromeVersion = browserMajorVersion(/Chrome\/(\d+)/);if (chromeVersion !== null) {return chromeVersion < 126;}var firefoxVersion = browserMajorVersion(/Firefox\/(\d+)/);if (firefoxVersion !== null) {return firefoxVersion < 150;}var safariVersion = isAppleSafari ? browserMajorVersion(/Version\/(\d+).*Safari\//) : null;if (safariVersion !== null) {return safariVersion < 27;}return true;}if (shouldLoadAutosizesPolyfill()) {var autosizesScript = document.createElement('script');autosizesScript.async = true;autosizesScript.crossOrigin = 'anonymous';autosizesScript.src = "//www.ghostlifestyle.com/cdn/shopifycloud/storefront/assets/storefront/autosizes-84416378.js";(document.head || document.documentElement).appendChild(autosizesScript);}window.ShopifyAnalytics = window.ShopifyAnalytics || {};window.ShopifyAnalytics.performance = window.ShopifyAnalytics.performance || {};(function () {var LONG_FRAME_THRESHOLD = 50;var longAnimationFrames = [];var activeRafId = null;function collectLongFrames() {var previousTime = null;function rafMonitor(now) {if (activeRafId === null) {return;}var delta = now - previousTime;if (delta > LONG_FRAME_THRESHOLD) {longAnimationFrames.push({startTime: previousTime,endTime: now,});}previousTime = now;activeRafId = requestAnimationFrame(rafMonitor);}previousTime = performance.now();activeRafId = requestAnimationFrame(rafMonitor);}if (!window.PerformanceObserver?.supportedEntryTypes?.includes('long-animation-frame')) {collectLongFrames();var timeoutId = setTimeout(function () {cancelAnimationFrame(activeRafId);}, 10000);window.ShopifyAnalytics.performance.getLongAnimationFrames = function (stopCollection) {if (stopCollection === undefined) {stopCollection = false;}if (stopCollection) {clearTimeout(timeoutId);cancelAnimationFrame(activeRafId);}return longAnimationFrames;};}})();})();</script><script crossorigin="anonymous" defer="defer" src="../cdn/shopifycloud/storefront/assets/shopify_pay/storefront-f0e26bdf.js%3Fv=20250812"></script>
+<script>(function () {var userAgent = navigator.userAgent;var platform = navigator.platform;var maxTouchPoints = navigator.maxTouchPoints || 0;var isIOS = /iPad|iPhone|iPod/.test(platform) || (platform === 'MacIntel' && maxTouchPoints > 1);var isMacSafari = platform.indexOf('Mac') === 0 && /Safari/.test(userAgent) && !/Chrome|Chromium|CriOS|FxiOS|Edg|OPR|Android/.test(userAgent);var isAppleSafari = isIOS || isMacSafari;if (isAppleSafari) {fetch('/sf_private_access_tokens' + location.search).catch(function () {});}function browserMajorVersion(pattern) {var match = userAgent.match(pattern);return match ? parseInt(match[1], 10) : null;}function shouldLoadAutosizesPolyfill() {if (!window.PerformanceObserver?.supportedEntryTypes?.includes('paint')) {return false;}var chromeVersion = browserMajorVersion(/Chrome\/(\d+)/);if (chromeVersion !== null) {return chromeVersion < 126;}var firefoxVersion = browserMajorVersion(/Firefox\/(\d+)/);if (firefoxVersion !== null) {return firefoxVersion < 150;}var safariVersion = isAppleSafari ? browserMajorVersion(/Version\/(\d+).*Safari\//) : null;if (safariVersion !== null) {return safariVersion < 27;}return true;}if (shouldLoadAutosizesPolyfill()) {var autosizesScript = document.createElement('script');autosizesScript.async = true;autosizesScript.crossOrigin = 'anonymous';autosizesScript.src = "//www.ghostlifestyle.com/cdn/shopifycloud/storefront/assets/storefront/autosizes-84416378.js";(document.head || document.documentElement).appendChild(autosizesScript);}window.ShopifyAnalytics = window.ShopifyAnalytics || {};window.ShopifyAnalytics.performance = window.ShopifyAnalytics.performance || {};(function () {var LONG_FRAME_THRESHOLD = 50;var longAnimationFrames = [];var activeRafId = null;function collectLongFrames() {var previousTime = null;function rafMonitor(now) {if (activeRafId === null) {return;}var delta = now - previousTime;if (delta > LONG_FRAME_THRESHOLD) {longAnimationFrames.push({startTime: previousTime,endTime: now,});}previousTime = now;activeRafId = requestAnimationFrame(rafMonitor);}previousTime = performance.now();activeRafId = requestAnimationFrame(rafMonitor);}if (!window.PerformanceObserver?.supportedEntryTypes?.includes('long-animation-frame')) {collectLongFrames();var timeoutId = setTimeout(function () {cancelAnimationFrame(activeRafId);}, 10000);window.ShopifyAnalytics.performance.getLongAnimationFrames = function (stopCollection) {if (stopCollection === undefined) {stopCollection = false;}if (stopCollection) {clearTimeout(timeoutId);cancelAnimationFrame(activeRafId);}return longAnimationFrames;};}})();})();</script><script crossorigin="anonymous" defer="defer" src="../cdn/shopifycloud/storefront/assets/shopify_pay/storefront-f0e26bdf.js?v=20250812"></script>
 <script async="async" crossorigin="anonymous" id="shopify-origin-trials" integrity="sha256-qJbe/jEZBHtr5W/BlA2cKAz3vkXu6vJQyLjgvgCC86g=" onerror="window.__shopifyOriginTrialsDone = true" onload="window.__shopifyOriginTrialsDone = true" src="https://cdn.shopify.com/shopifycloud/storefront/assets/storefront/origin_trials-318ab40a.js"></script>
 <script>
   window.Shopify = window.Shopify || {};
@@ -207,16 +207,16 @@ Shopify.SignInWithShop.User.recognized = false;</script>
 <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
-<link href="../cdn/shop/t/771/assets/css-variables.css%3Fv=24817367225653651784845739.css" media="all" rel="stylesheet" type="text/css"/>
-<link href="../cdn/shop/t/771/assets/tailwind.css%3Fv=163858058229788927901786034951.css" media="all" rel="stylesheet" type="text/css"/>
-<link href="../cdn/shop/t/771/assets/fonts.css%3Fv=83324042000946196311712686573.css" media="print" onload="this.media='all'" rel="stylesheet">
-<link href="../cdn/shop/t/771/assets/swiper.min.css%3Fv=91781980875322412291712686573.css" media="print" onload="this.media='all'" rel="stylesheet">
+<link href="../cdn/shop/t/771/assets/css-variables.css?v=24817367225653651784845739.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="../cdn/shop/t/771/assets/tailwind.css?v=163858058229788927901786034951.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="../cdn/shop/t/771/assets/fonts.css?v=83324042000946196311712686573.css" media="print" onload="this.media='all'" rel="stylesheet">
+<link href="../cdn/shop/t/771/assets/swiper.min.css?v=91781980875322412291712686573.css" media="print" onload="this.media='all'" rel="stylesheet">
 <script data-swiper-script="" defer="" src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="../cdn/shop/t/771/assets/globals.js%3Fv=55588594446686367201784845731"></script>
-<script defer="" src="../cdn/shop/t/771/assets/quickbuy.js%3Fv=33218932026249633151785426832"></script>
-<script defer="" src="../cdn/shop/t/771/assets/swatch-image.js%3Fv=161655543004484497881712686572"></script>
-<script defer="" src="../cdn/shop/t/771/assets/fake-select.js%3Fv=126217703471752435331784845730"></script>
-<script src="../cdn/shop/t/771/assets/modal.js%3Fv=172681270830919980791736209280"></script>
+<script src="../cdn/shop/t/771/assets/globals.js?v=55588594446686367201784845731"></script>
+<script defer="" src="../cdn/shop/t/771/assets/quickbuy.js?v=33218932026249633151785426832"></script>
+<script defer="" src="../cdn/shop/t/771/assets/swatch-image.js?v=161655543004484497881712686572"></script>
+<script defer="" src="../cdn/shop/t/771/assets/fake-select.js?v=126217703471752435331784845730"></script>
+<script src="../cdn/shop/t/771/assets/modal.js?v=172681270830919980791736209280"></script>
 <script defer="" src="https://storage.googleapis.com/ghostlifestyle/main.js "></script>
 <script>
       (() => {
@@ -602,9 +602,9 @@ first.parentNode.insertBefore(script, first);
         Skip to main content
       </a>
 </div>
-<section class="shopify-section section fixed w-full top-0 z-1" id="shopify-section-header"><script defer="" src="../cdn/shop/t/771/assets/accordion.js%3Fv=69865676654640836121712686571"></script>
-<script defer="" src="../cdn/shop/t/771/assets/carousel.js%3Fv=110198922621471479311784845729"></script>
-<script defer="" src="../cdn/shop/t/771/assets/header.js%3Fv=121816494930309978601782916909"></script>
+<section class="shopify-section section fixed w-full top-0 z-1" id="shopify-section-header"><script defer="" src="../cdn/shop/t/771/assets/accordion.js?v=69865676654640836121712686571"></script>
+<script defer="" src="../cdn/shop/t/771/assets/carousel.js?v=110198922621471479311784845729"></script>
+<script defer="" src="../cdn/shop/t/771/assets/header.js?v=121816494930309978601782916909"></script>
 <header>
 <header-menu class="block">
 <nav class="md:focus-within:[--header-bg:var(--primary-light)] md:focus-within:[--header-shadow:0] md:hover:[--header-bg:var(--primary-light)] md:hover:[--header-shadow:0] px-5 grid gap-7 shadow-headerShadow grid-cols-[1fr_100px_1fr] items-stretch bg-headerBg text-headerText ease-in-out md:hover:!text-primaryDark md:focus-within:text-primaryDark before:absolute before:top-0 before:left-0 before:w-full before:h-full before:backdrop-blur-none before:-z-1" style="transition: 0.4s;">
@@ -1091,17 +1091,17 @@ COMPLÉMENTS
 <a class="skip-carousel" href="../index.html#supplements-end-of-carousel" tabindex="0">Skip carousel</a>
 <div class="swiper-wrapper">
 <a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="supplements.html">
-<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/supps_nav_264b486e-9b14-4ef0-bfc0-89154d4d48eb.png%3Fv=1729527172&amp;width=600" srcset="cdn/shop/files/supps_nav_264b486e-9b14-4ef0-bfc0-89154d4d48eb.png%3Fv=1729527172&amp;width=352=352 35cdn/shop/files/supps_nav_264b486e-9b14-4ef0-bfc0-89154d4d48eb.png%3Fv=1729527172&amp;width=600idth=600 600w" width="600"/>
+<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/supps_nav_264b486e-9b14-4ef0-bfc0-89154d4d48eb.png?v=1729527172&amp;width=600" srcset="cdn/shop/files/supps_nav_264b486e-9b14-4ef0-bfc0-89154d4d48eb.png?v=1729527172&amp;width=352=352 35cdn/shop/files/supps_nav_264b486e-9b14-4ef0-bfc0-89154d4d48eb.png?v=1729527172&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">Tous les Suppléments</span>
 </a>
 <a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="bundles.html">
-<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Bundle_Nav.png%3Fv=1664916799&amp;width=600" srcset="cdn/shop/files/Bundle_Nav.png%3Fv=1664916799&amp;width=352=352 35cdn/shop/files/Bundle_Nav.png%3Fv=1664916799&amp;width=600idth=600 600w" style="object-position:65.4065% 15.4326%;" width="600"/>
+<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Bundle_Nav.png?v=1664916799&amp;width=600" srcset="cdn/shop/files/Bundle_Nav.png?v=1664916799&amp;width=352=352 35cdn/shop/files/Bundle_Nav.png?v=1664916799&amp;width=600idth=600 600w" style="object-position:65.4065% 15.4326%;" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">Packs Économiques</span>
 </a>
 <a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="new-supplements.html">
-<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp%3Fv=1788297088&amp;width=600" srcset="cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp%3Fv=1788297088&amp;width=352=352 35cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp%3Fv=1788297088&amp;width=600idth=600 600w" width="600"/>
+<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp?v=1788297088&amp;width=600" srcset="cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp?v=1788297088&amp;width=352=352 35cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp?v=1788297088&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">NOUVEAUTÉS SUPPLÉMENTS</span>
 </a>
@@ -1169,22 +1169,22 @@ COMPLÉMENTS
 <a class="skip-carousel" href="../index.html#the-brand-end-of-carousel" tabindex="0">Skip carousel</a>
 <div class="swiper-wrapper">
 <a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="https://drinkghost.com/pages/energy">
-<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Energy.png%3Fv=1757622600&amp;width=600" srcset="cdn/shop/files/Energy.png%3Fv=1757622600&amp;width=352=352 35cdn/shop/files/Energy.png%3Fv=1757622600&amp;width=600idth=600 600w" width="600"/>
+<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Energy.png?v=1757622600&amp;width=600" srcset="cdn/shop/files/Energy.png?v=1757622600&amp;width=352=352 35cdn/shop/files/Energy.png?v=1757622600&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H ENERGY</span>
 </a>
 <a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="https://drinkghost.com/pages/hydration">
-<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Hydration.png%3Fv=1757622677&amp;width=600" srcset="cdn/shop/files/Hydration.png%3Fv=1757622677&amp;width=352=352 35cdn/shop/files/Hydration.png%3Fv=1757622677&amp;width=600idth=600 600w" width="600"/>
+<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Hydration.png?v=1757622677&amp;width=600" srcset="cdn/shop/files/Hydration.png?v=1757622677&amp;width=352=352 35cdn/shop/files/Hydration.png?v=1757622677&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H HYDRATION</span>
 </a>
 <a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="../pages/ghost-protein-bars.html">
-<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Protein_Bars_1.png%3Fv=1757622165&amp;width=600" srcset="cdn/shop/files/Protein_Bars_1.png%3Fv=1757622165&amp;width=352=352 35cdn/shop/files/Protein_Bars_1.png%3Fv=1757622165&amp;width=600idth=600 600w" width="600"/>
+<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Protein_Bars_1.png?v=1757622165&amp;width=600" srcset="cdn/shop/files/Protein_Bars_1.png?v=1757622165&amp;width=352=352 35cdn/shop/files/Protein_Bars_1.png?v=1757622165&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H PROTEIN BARS</span>
 </a>
 <a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="../pages/ghost-protein-cereal.html">
-<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="809" loading="lazy" src="../cdn/shop/files/ghost-cereal-2.png%3Fv=1715815969&amp;width=600" srcset="cdn/shop/files/ghost-cereal-2.png%3Fv=1715815969&amp;width=352=352 35cdn/shop/files/ghost-cereal-2.png%3Fv=1715815969&amp;width=600idth=600 600w" width="600"/>
+<img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="809" loading="lazy" src="../cdn/shop/files/ghost-cereal-2.png?v=1715815969&amp;width=600" srcset="cdn/shop/files/ghost-cereal-2.png?v=1715815969&amp;width=352=352 35cdn/shop/files/ghost-cereal-2.png?v=1715815969&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H PROTEIN CEREAL</span>
 </a>
@@ -1210,8 +1210,8 @@ COMPLÉMENTS
   }
 </style>
 </section>
-<section class="shopify-section section" id="shopify-section-predictive-search"><script defer="" src="../cdn/shop/t/771/assets/predictive-search.js%3Fv=182909019826779017851784845731"></script>
-<script defer="" src="../cdn/shop/t/771/assets/carousel.js%3Fv=110198922621471479311784845729"></script>
+<section class="shopify-section section" id="shopify-section-predictive-search"><script defer="" src="../cdn/shop/t/771/assets/predictive-search.js?v=182909019826779017851784845731"></script>
+<script defer="" src="../cdn/shop/t/771/assets/carousel.js?v=110198922621471479311784845729"></script>
 <predictive-search aria-label="Recherche prédictive" aria-modal="true" class="hidden opacity-0 overflow-y-scroll transition-opacity duration-500 top-0 h-full md:h-auto md:top-announcementHeight px-8 bg-primaryLight w-screen overflow-hidden z-20" data-search-url="/search" id="predictiveSearch" role="dialog">
 <div aria-live="assertive" class="results-count sr-only" data-count=""></div>
 <div class="hidden md:flex items-center justify-center py-8 relative">
@@ -1590,10 +1590,10 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
 </div>
 </predictive-search>
 </section>
-<section class="shopify-section section" id="shopify-section-minicart"><script defer="" src="../cdn/shop/t/771/assets/minicart.js%3Fv=16417234627046175611784063122"></script>
-<script defer="" src="../cdn/shop/t/771/assets/quickbuy.js%3Fv=33218932026249633151785426832"></script>
-<script defer="" src="../cdn/shop/t/771/assets/cart-recommendations.js%3Fv=91615909458984286341756832316"></script>
-<link href="../cdn/shop/t/771/assets/skio-plan-picker.css%3Fv=76871948963792062071756832319.css" media="all" rel="stylesheet" type="text/css"/>
+<section class="shopify-section section" id="shopify-section-minicart"><script defer="" src="../cdn/shop/t/771/assets/minicart.js?v=16417234627046175611784063122"></script>
+<script defer="" src="../cdn/shop/t/771/assets/quickbuy.js?v=33218932026249633151785426832"></script>
+<script defer="" src="../cdn/shop/t/771/assets/cart-recommendations.js?v=91615909458984286341756832316"></script>
+<link href="../cdn/shop/t/771/assets/skio-plan-picker.css?v=76871948963792062071756832319.css" media="all" rel="stylesheet" type="text/css"/>
 <mini-cart aria-label="Minicart" aria-modal="true" class="loading bg-primaryLight hidden right-0 top-0 bottom-0 w-full max-w-drawerWidth p-0 transition duration-500 transform translate-x-full z-10" data-cart-item-count="0" data-cart-url="/cart" data-section-id="minicart" id="miniCart" role="dialog">
 <div class="flex flex-col w-full h-full overflow-x-hidden last">
 <div class="flex items-center w-full sticky top-0 bg-primaryLight z-10 px-6 py-5 border-b border-accent2">
@@ -2228,10 +2228,10 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
 <!-- /F&H Sign-In Modal -->
 </div>
 <main class="flex-grow z-0 mt-headerHeight max-w-screen" id="MainContent" role="main" tabindex="-1">
-<section class="shopify-section section grid grid-cols-collectionTemplate" id="shopify-section-template--16887808819377__1655913357068fee5b"><script defer="" src="../cdn/shop/t/771/assets/plp-listing.js%3Fv=82369520810851412091753466129"></script>
-<script defer="" src="../cdn/shop/t/771/assets/filter-drawer.js%3Fv=43010335516769004371712686571"></script>
-<script defer="" src="../cdn/shop/t/771/assets/intersection-loader.js%3Fv=111346151800094343031742501157"></script>
-<script defer="" src="../cdn/shop/t/771/assets/subscription-toggle.js%3Fv=141661818550366224941784845733"></script>
+<section class="shopify-section section grid grid-cols-collectionTemplate" id="shopify-section-template--16887808819377__1655913357068fee5b"><script defer="" src="../cdn/shop/t/771/assets/plp-listing.js?v=82369520810851412091753466129"></script>
+<script defer="" src="../cdn/shop/t/771/assets/filter-drawer.js?v=43010335516769004371712686571"></script>
+<script defer="" src="../cdn/shop/t/771/assets/intersection-loader.js?v=111346151800094343031742501157"></script>
+<script defer="" src="../cdn/shop/t/771/assets/subscription-toggle.js?v=141661818550366224941784845733"></script>
 <div class="pt-5 md:pt-10 md:ml-[213px] md:col-span-2 px-4 md:px-0 flex items-end">
 <h1 class="md:mr-20">TOUT VOIR</h1>
 <div class="ml-auto grid grid-cols-2 md:hidden gap-4 pb-2.5">
@@ -4684,8 +4684,8 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
     </script>
 <filter-drawer data-reload="[data-append-pagination], [data-loading-wrapper]" data-section-id="template--16887808819377__1655913357068fee5b">
 <template data-drawer-content="collection-filters">
-<script defer="" src="../cdn/shop/t/771/assets/accordion.js%3Fv=69865676654640836121712686571"></script>
-<script defer="" src="../cdn/shop/t/771/assets/range-selector.js%3Fv=96139797899840137041712686571"></script>
+<script defer="" src="../cdn/shop/t/771/assets/accordion.js?v=69865676654640836121712686571"></script>
+<script defer="" src="../cdn/shop/t/771/assets/range-selector.js?v=96139797899840137041712686571"></script>
 <div aria-label="PROTEIN filter drawer" aria-modal="true" class="flex flex-col w-full overflow-y-scroll max-w-drawerWidth h-full bg-primaryLight max-h-screen" role="dialog">
 <div class="flex items-center pb-10 sticky bg-primaryLight top-0 px-10 pt-15 z-50">
 <h4 class="h4">FILTRES</h4>
