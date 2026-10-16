@@ -146,13 +146,8 @@
       document.querySelectorAll(sel).forEach(el => el.remove());
     });
     // Remove any overlay containing 20% OFF or claim your discount
-    document.querySelectorAll('div, section, aside').forEach(el => {
-      if (el.children.length > 0 && el.children.length < 15) {
-        const text = el.innerText || '';
-        if (text.includes("YOU'VE GOT 20% OFF") || text.includes('Let us know your goal to claim your discount')) {
-          el.remove();
-        }
-      }
+    document.querySelectorAll('#attentive_overlay, #attentive_creative, [class*="attentive"], [id*="attentive"], [class*="alia"], [id*="alia"]').forEach(el => {
+      el.remove();
     });
   }
   if (document.readyState === 'loading') {
