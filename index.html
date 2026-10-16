@@ -265,7 +265,7 @@ Shopify.SignInWithShop.User.recognized = false;</script>
   })();
 </script>
 <script async="" blocking="render" data-em-disable="" fetchpriority="high" src="https://cdn.intelligems.io/esm/dcea2d9d6efd/bundle.js" type="module"></script>
-<!-- Floating widgets suppression -->
+<!-- Floating widgets & offer popup suppression -->
 <style id="fh-suppress-floating-widgets">
   #gorgias-chat-container,
   #gorgias-web-messenger-container,
@@ -280,8 +280,15 @@ Shopify.SignInWithShop.User.recognized = false;</script>
   div[id*="ps-"],
   div[class*="ps-"],
   div[id*="attentive"],
+  iframe[id*="attentive"],
   #attentive_overlay,
   #attentive_creative,
+  [class*="attentive"],
+  [id*="attentive"],
+  div[id*="alia"],
+  iframe[id*="alia"],
+  div[class*="alia"],
+  #alia-container,
   div[class*="privy"],
   .needsclick,
   [data-testid*="teaser"],
@@ -293,8 +300,41 @@ Shopify.SignInWithShop.User.recognized = false;</script>
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 </style>
+<script>
+(function() {
+  // Aggressively remove offer / attentive / alia popups and modals
+  function purgeOfferPopups() {
+    const selectors = [
+      '#attentive_overlay', '#attentive_creative', 'iframe[id*="attentive"]',
+      'div[id*="attentive"]', '[class*="attentive"]', '[id*="attentive"]',
+      'div[id*="alia"]', 'iframe[id*="alia"]', '[class*="alia"]',
+      '#shopify-block-AVElYbHJnemxjbVVrN__10840395464443086010'
+    ];
+    selectors.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => el.remove());
+    });
+    // Remove any overlay containing 20% OFF or claim your discount
+    document.querySelectorAll('div, section, aside').forEach(el => {
+      if (el.children.length > 0 && el.children.length < 15) {
+        const text = el.innerText || '';
+        if (text.includes("YOU'VE GOT 20% OFF") || text.includes('Let us know your goal to claim your discount')) {
+          el.remove();
+        }
+      }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', purgeOfferPopups);
+  } else {
+    purgeOfferPopups();
+  }
+  new MutationObserver(purgeOfferPopups).observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>
 <!-- END app block -->
 
 <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch"/>
@@ -743,23 +783,6 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
 <li><a aria-label="Connexion ou création de compte" class="block w-5 h-5 md:animation-levitate md:hover:text-primaryDark" href="account/register.html" role="button">
 <svg aria-hidden="true" fill="currentColor" height="100%" id="no_stroke" viewbox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
 </a></li>
-<li><a class="block w-5 h-5 relative md:animation-levitate md:hover:text-primaryDark" href="cart.html" role="button">
-<svg aria-hidden="true" height="100%" viewbox="0 0 17 20" width="100%" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<clippath id="b90lzb7xoa">
-<path d="M0 0h17v20H0z" data-name="Rectangle 24"></path>
-</clippath>
-</defs>
-<path d="m16.683 7.316-2.224-2.224a1 1 0 0 0-.706-.293H12.8v-.226A4.514 4.514 0 0 0 9.322.094 4.408 4.408 0 0 0 4 4.4v.4h-.951a1 1 0 0 0-.707.293L.118 7.316A.4.4 0 0 0 0 7.6V19a1 1 0 0 0 1 1h14.8a1 1 0 0 0 1-1V7.6a.4.4 0 0 0-.118-.283M13.753 5.6a.2.2 0 0 1 .141.058L15.435 7.2H12.8V5.6zM12 7.2H4.8V5.6H12zM4.8 4.4A3.606 3.606 0 0 1 9.153.877 3.692 3.692 0 0 1 12 4.541V4.8H4.8zM2.907 5.658a.2.2 0 0 1 .142-.058H4v1.6H1.366z" data-name="Path 12" fill="currentColor" style="clip-path:url(index.html)"></path>
-</svg>
-<div class="sr-only" data-sr-cart-count="">
-                          
-                            articles dans le panier
-                        </div>
-<span class="font-heading font-black text-small absolute bottom-px leading-3 flex justify-center w-full transition duration-200 text-countText" data-cart-count="">
-</span>
-</a>
-</li>
 </ul>
 <!-- start mobile menu drawer -->
 <div aria-label="Main Menu" aria-modal="true" class="fixed top-0 left-0 h-full w-full bg-primaryLight text-primaryDark overflow-y-scroll lg:hidden transform -translate-x-full transition duration-500" data-mobile-drawer="" inert="" role="dialog">
@@ -843,20 +866,6 @@ COMPLÉMENTS
 </ul>
 <div class="sticky bottom-0 bg-primaryLight pb-10">
 <hr class="mt-10"/>
-<a class="flex font-body items-center w-full py-5 px-10 text-xs" data-action="close-menu" href="cart.html">
-<span aria-hidden="true" class="block w-6 h-6 mr-4">
-<svg aria-hidden="true" height="100%" viewbox="0 0 17 20" width="100%" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<clippath id="b90lzb7xoa">
-<path d="M0 0h17v20H0z" data-name="Rectangle 24"></path>
-</clippath>
-</defs>
-<path d="m16.683 7.316-2.224-2.224a1 1 0 0 0-.706-.293H12.8v-.226A4.514 4.514 0 0 0 9.322.094 4.408 4.408 0 0 0 4 4.4v.4h-.951a1 1 0 0 0-.707.293L.118 7.316A.4.4 0 0 0 0 7.6V19a1 1 0 0 0 1 1h14.8a1 1 0 0 0 1-1V7.6a.4.4 0 0 0-.118-.283M13.753 5.6a.2.2 0 0 1 .141.058L15.435 7.2H12.8V5.6zM12 7.2H4.8V5.6H12zM4.8 4.4A3.606 3.606 0 0 1 9.153.877 3.692 3.692 0 0 1 12 4.541V4.8H4.8zM2.907 5.658a.2.2 0 0 1 .142-.058H4v1.6H1.366z" data-name="Path 12" fill="currentColor" style="clip-path:url(index.html)"></path>
-</svg>
-</span>
-                        Mon Panier
-                    </a>
-<hr/>
 <a class="flex items-center w-full py-5 px-10 text-xs" data-action="close-menu" href="account/register.html">
 <span class="block w-6 h-6 mr-4">
 <svg aria-hidden="true" fill="currentColor" height="100%" id="no_stroke" viewbox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
@@ -1496,37 +1505,6 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
 <script defer="" src="cdn/shop/t/771/assets/quickbuy.js?v=33218932026249633151785426832"></script>
 <script defer="" src="cdn/shop/t/771/assets/cart-recommendations.js?v=91615909458984286341756832316"></script>
 <link href="cdn/shop/t/771/assets/skio-plan-picker.css?v=76871948963792062071756832319.css" media="all" rel="stylesheet" type="text/css"/>
-<mini-cart aria-label="Minicart" aria-modal="true" class="loading bg-primaryLight hidden right-0 top-0 bottom-0 w-full max-w-drawerWidth p-0 transition duration-500 transform translate-x-full z-10" data-cart-item-count="0" data-cart-url="/cart" data-section-id="minicart" id="miniCart" role="dialog">
-<div class="flex flex-col w-full h-full overflow-x-hidden last">
-<div class="flex items-center w-full sticky top-0 bg-primaryLight z-10 px-6 py-5 border-b border-accent2">
-<h2 class="text-xs uppercase font-body font-black tracking-normal">
-        Mon Panier 
-        
-      </h2>
-<button aria-label="Fermer le panier" class="flex ml-auto items-center transition duration-200 md:hover:text-accent1 animation-spin" data-close-cart="" type="button">
-<span class="block w-3">
-<svg aria-hidden="true" fill="currentColor" height="100%" viewbox="0 0 12 12" width="100%" xmlns="http://www.w3.org/2000/svg">
-<path d="M10.795 0 6 4.795 1.2 0 0 1.2 4.795 6 0 10.795 1.2 12 6 7.205 10.795 12 12 10.795 7.205 6 12 1.2z"></path>
-</svg>
-</span>
-</button>
-</div>
-<div class="flex flex-col justify-center items-center py-6 gap-4">
-<p>Votre panier est vide !</p>
-<a class="block" href="collections/all.html">Découvrir</a>
-</div>
-<div class="sticky bottom-0 bg-primaryLight z-10" data-sticky-footer="">
-</div>
-</div>
-<div class="loader">
-<span class="block w-12 h-12">
-<svg class="animate-spin -ml-1 mr-3 h-full w-full text-accent1" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-<path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
-</svg>
-</span>
-</div>
-</mini-cart>
 </section>
 <div class="shopify-section" id="shopify-section-account-drawer">
 <!-- F&H Sign-In Modal -->
@@ -1923,10 +1901,6 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
           <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
           Google
         </a>
-        <a href="#" class="fh-social-btn" onclick="return false;">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.18 0-.36-.02-.53-.06-.01-.08-.04-.35-.04-.56 0-1.12.535-2.22 1.235-3.01.36-.4.98-.84 1.57-1.1.59-.26 1.12-.4 1.57-.4.04.18.06.35.06.48zm4.565 17.14c-.43.99-1.05 1.9-1.83 2.72-.71.73-1.45 1.12-2.2 1.2-.44.05-.98-.07-1.59-.36-.66-.3-1.26-.45-1.8-.45s-1.14.15-1.82.45c-.62.29-1.12.4-1.5.36-.82-.09-1.56-.5-2.22-1.23C2.64 19.44 1.5 16.46 1.5 13.34c0-2.63.87-4.55 2.36-5.94 1.13-1.07 2.57-1.65 4.08-1.68.52-.01 1.14.14 1.85.44.73.3 1.2.46 1.4.46.15 0 .67-.18 1.55-.54.78-.32 1.48-.48 2.1-.48 2.1.07 3.6 1.15 4.46 2.83-1.47.86-2.5 2.2-2.5 4.08 0 2.17 1.3 3.75 2.75 4.48-.22.66-.47 1.27-.79 1.84z"/></svg>
-          Apple
-        </a>
       </div>
     </div>
     <!-- SIGN UP Panel -->
@@ -1975,10 +1949,6 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
         <a href="#" class="fh-social-btn" onclick="return false;">
           <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
           Google
-        </a>
-        <a href="#" class="fh-social-btn" onclick="return false;">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.18 0-.36-.02-.53-.06-.01-.08-.04-.35-.04-.56 0-1.12.535-2.22 1.235-3.01.36-.4.98-.84 1.57-1.1.59-.26 1.12-.4 1.57-.4.04.18.06.35.06.48zm4.565 17.14c-.43.99-1.05 1.9-1.83 2.72-.71.73-1.45 1.12-2.2 1.2-.44.05-.98-.07-1.59-.36-.66-.3-1.26-.45-1.8-.45s-1.14.15-1.82.45c-.62.29-1.12.4-1.5.36-.82-.09-1.56-.5-2.22-1.23C2.64 19.44 1.5 16.46 1.5 13.34c0-2.63.87-4.55 2.36-5.94 1.13-1.07 2.57-1.65 4.08-1.68.52-.01 1.14.14 1.85.44.73.3 1.2.46 1.4.46.15 0 .67-.18 1.55-.54.78-.32 1.48-.48 2.1-.48 2.1.07 3.6 1.15 4.46 2.83-1.47.86-2.5 2.2-2.5 4.08 0 2.17 1.3 3.75 2.75 4.48-.22.66-.47 1.27-.79 1.84z"/></svg>
-          Apple
         </a>
       </div>
     </div>
@@ -4686,34 +4656,7 @@ $(document).ajaxSuccess(function(event, xhr, settings) {
 <!-- Keynes LAL Pixel -->
 <img height="1" src="https://action.dstillery.com/orbserv/nspix?adv=cl172935946111751&amp;ns=9078&amp;nc=ghost-site-visitor&amp;ncv=58" width="1"/>
 <!-- End Keynes LAL Pixel -->
-<div class="shopify-block shopify-app-block" id="shopify-block-AVElYbHJnemxjbVVrN__10840395464443086010">
-<script>
-  console.log("[Alia app extension] v1.0.5");
-
-  const BACKEND_URL = "https://backend.alia-prod.com";
-
-  window.ALIA_SHOPIFY_EXTENSION_INFO = {
-    customerID: "",
-    country: "US",
-    market: "us",
-    language: "en"
-  }
-
-  if (document.readyState !== "loading") {
-    initAlia();
-  } else {
-    document.addEventListener("DOMContentLoaded", () => initAlia(), { once: true });
-  }
-
-  async function initAlia() {
-    const url = BACKEND_URL + "/public/launcher.js?shopifyUrl=ghost-lifestyle.myshopify.com";
-    const script = document.createElement("script");
-    script.src = url;
-    script.async = true;
-    document.head.appendChild(script);
-  }
-</script>
-</div><script data-source-attribution="shopify.standard_actions" src="https://cdn.shopify.com/storefront/standard-actions.js" type="module"></script>
+<script data-source-attribution="shopify.standard_actions" src="https://cdn.shopify.com/storefront/standard-actions.js" type="module"></script>
 
 <script>
   // Demo mode: Ensure every product tile / listing click navigates to the Peanut Protein Bar listing page
