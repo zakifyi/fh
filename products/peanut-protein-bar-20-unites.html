@@ -1155,7 +1155,7 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
             </div>
 
             <!-- Main High-Res Preview Canvas (ESN Minimalist Light Box) -->
-            <div class="flex-1 bg-[#f8f9fa] rounded-2xl border border-gray-200 p-8 sm:p-12 relative flex items-center justify-center min-h-[420px] sm:min-h-[520px] shadow-sm overflow-hidden group">
+            <div class="flex-1 bg-[#f8f9fa] rounded-2xl border border-gray-200 p-3 sm:p-8 relative flex items-center justify-center min-h-[360px] sm:min-h-[520px] shadow-sm overflow-hidden group cursor-pointer" id="main-product-canvas">
 
 
               <!-- Zoom Icon Overlay -->
@@ -1169,7 +1169,7 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
               <img id="main-product-img" 
                    src="../cdn/shop/files/peanut-protein-bar.png" 
                    alt="F&H® PEANUT PROTEIN BAR | 20 UNITÉS" 
-                   class="max-h-[380px] sm:max-h-[460px] w-auto object-contain transition-all duration-300 transform group-hover:scale-105" />
+                   class="w-full h-full max-h-[360px] sm:max-h-[500px] object-contain transition-all duration-300 transform group-hover:scale-105" />
             </div>
 
           </div>
@@ -1745,6 +1745,49 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
           }
         });
       });
+
+      
+    // Lightbox Modal Logic
+    const lightboxModal = document.getElementById('image-lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-full-img');
+    const closeLightboxBtn = document.getElementById('close-lightbox-btn');
+    const zoomBtn = document.getElementById('zoom-preview-btn');
+    const canvasEl = document.getElementById('main-product-canvas');
+
+    function openLightbox() {
+      if (!lightboxModal || !mainImg || !lightboxImg) return;
+      lightboxImg.src = mainImg.src;
+      lightboxModal.classList.remove('hidden');
+      setTimeout(() => {
+        lightboxModal.classList.remove('opacity-0');
+        document.body.style.overflow = 'hidden';
+      }, 10);
+    }
+
+    function closeLightbox() {
+      if (!lightboxModal) return;
+      lightboxModal.classList.add('opacity-0');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        lightboxModal.classList.add('hidden');
+      }, 300);
+    }
+
+    if (zoomBtn) zoomBtn.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(); });
+    if (canvasEl) canvasEl.addEventListener('click', openLightbox);
+    if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+    if (lightboxModal) {
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal || e.target.closest('#close-lightbox-btn')) {
+          closeLightbox();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !lightboxModal.classList.contains('hidden')) {
+          closeLightbox();
+        }
+      });
+    }
 
       // 2. Format Selection Tabs
       const formatBtns = document.querySelectorAll('.format-btn');
@@ -2693,6 +2736,19 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
   }
 })();
 </script>
+
+
+<!-- Image Lightbox Modal for High-Res Inspection -->
+<div id="image-lightbox-modal" class="fixed inset-0 z-[99999] bg-black/95 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+  <button type="button" id="close-lightbox-btn" class="absolute top-6 right-6 z-10 w-11 h-11 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center transition shadow-lg" aria-label="Fermer">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+  <div class="max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center p-2">
+    <img id="lightbox-full-img" src="" alt="Zoom produit" class="max-w-full max-h-[85vh] object-contain select-none shadow-2xl rounded-lg" />
+  </div>
+</div>
 
 </body>
 </html>
