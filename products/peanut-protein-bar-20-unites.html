@@ -139,14 +139,14 @@
     const selectors = [
       '#attentive_overlay', '#attentive_creative', 'iframe[id*="attentive"]',
       'div[id*="attentive"]', '[class*="attentive"]', '[id*="attentive"]',
-      'div[id*="alia"]', 'iframe[id*="alia"]', '[class*="alia"]',
+      'div[id*="alia"]', 'iframe[id*="alia"]',
       '#shopify-block-AVElYbHJnemxjbVVrN__10840395464443086010'
     ];
     selectors.forEach(sel => {
       document.querySelectorAll(sel).forEach(el => el.remove());
     });
     // Remove any overlay containing 20% OFF or claim your discount
-    document.querySelectorAll('#attentive_overlay, #attentive_creative, [class*="attentive"], [id*="attentive"], [class*="alia"], [id*="alia"]').forEach(el => {
+    document.querySelectorAll('#attentive_overlay, #attentive_creative, [class*="attentive"], [id*="attentive"]').forEach(el => {
       el.remove();
     });
   }
