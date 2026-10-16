@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Où nous trouver &amp; Demander un produit près de chez vous | F&amp;H</title>
+  <meta name="description" content="Découvrez nos points de vente partenaires et votez sur la carte interactive pour demander l'arrivée des barres protéinées et compléments F&amp;H dans votre ville !" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:site_name" content="F&amp;H | Fitness &amp; Health" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Où nous trouver &amp; Demander F&amp;H dans votre ville" />
+  <meta property="og:description" content="Votez sur la carte interactive F&amp;H pour faire approvisionner votre salle de sport, supermarché ou magasin local !" />
+  <meta property="og:image" content="cdn/shop/files/fh-social-preview-1200.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link href="cdn/shop/files/fh-favicon.png?v=3" rel="shortcut icon" type="image/png" />
+  <link href="cdn/shop/files/fh-favicon.png?v=3" rel="icon" type="image/png" />
+
+  <!-- Core Theme Styles -->
+  <link href="cdn/shop/t/771/assets/css-variables.css?v=24817367225653651784845739.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="cdn/shop/t/771/assets/tailwind.css?v=163858058229788927901786034951.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="cdn/shop/t/771/assets/fonts.css?v=83324042000946196311712686573.css" media="print" onload="this.media='all'" rel="stylesheet" />
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <!-- Custom Demand Map CSS -->
+  <link rel="stylesheet" href="assets/demand-map.css" />
+</head>
+<body class="bg-primaryLight text-primaryDark min-h-screen flex flex-col font-body antialiased">
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-50 bg-primaryLight/95 backdrop-blur-md border-b border-gray-200 shadow-sm transition">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- Left: Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs sm:text-sm font-bold tracking-wider uppercase">
+        <a href="collections/protein.html" class="hover:text-black transition">Snacks</a>
+        <a href="collections/protein.html" class="hover:text-black transition">Boissons</a>
+        <a href="collections/protein.html" class="hover:text-black transition">Compléments</a>
+        <a href="ou-nous-trouver.html" class="text-black border-b-2 border-black pb-0.5 flex items-center gap-1.5">
+          <span>📍</span> Où nous trouver
+        </a>
+      </nav>
+
+      <!-- Center: Logo -->
+      <a href="index.html" class="flex items-center justify-center py-2" aria-label="Accueil F&amp;H">
+        <img src="cdn/shop/files/fh-logo.png" alt="F&amp;H Fitness &amp; Health" class="h-10 sm:h-12 w-auto object-contain" />
+      </a>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center gap-4 sm:gap-6">
+        <a href="search.html" class="p-2 hover:opacity-75 transition" aria-label="Recherche">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </a>
+        <a href="index.html#account" class="p-2 hover:opacity-75 transition" aria-label="Mon compte">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+          </svg>
+        </a>
+        <a href="cart.html" class="p-2 relative hover:opacity-75 transition" aria-label="Panier">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main class="flex-grow">
+    <section class="bg-neutral-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-b border-neutral-800">
+      <div class="max-w-5xl mx-auto text-center space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-black tracking-widest uppercase">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+          Programme d'expansion communautaire F&amp;H
+        </div>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading uppercase tracking-tight text-white leading-tight">
+          Votre ville manque de produits F&amp;H ?
+        </h1>
+        <p class="text-base sm:text-lg text-neutral-300 max-w-2xl mx-auto font-normal leading-relaxed">
+          Votez sur la carte interactive pour faire approvisionner votre salle de sport, supermarché ou boutique préférée. 
+          Plus une zone enregistre de demandes, plus vite notre équipe commerciale déploie les stocks en rayon !
+        </p>
+
+        <!-- Stats Bar -->
+        <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto border-t border-neutral-800 mt-8">
+          <div class="bg-neutral-800/60 p-4 rounded-xl border border-neutral-700/50">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white" data-stat-total-votes>1,482</div>
+            <div class="text-[11px] sm:text-xs text-neutral-400 uppercase tracking-wider font-semibold mt-1">Votes enregistrés</div>
+          </div>
+          <div class="bg-neutral-800/60 p-4 rounded-xl border border-neutral-700/50">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white" data-stat-total-cities>14</div>
+            <div class="text-[11px] sm:text-xs text-neutral-400 uppercase tracking-wider font-semibold mt-1">Villes prioritaires</div>
+          </div>
+          <div class="bg-neutral-800/60 p-4 rounded-xl border border-neutral-700/50">
+            <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">58 / 69</div>
+            <div class="text-[11px] sm:text-xs text-neutral-400 uppercase tracking-wider font-semibold mt-1">Wilayas couvertes</div>
+          </div>
+          <div class="bg-neutral-800/60 p-4 rounded-xl border border-neutral-700/50">
+            <div class="text-2xl sm:text-3xl font-extrabold text-red-400">24h - 48h</div>
+            <div class="text-[11px] sm:text-xs text-neutral-400 uppercase tracking-wider font-semibold mt-1">Traitement partenaire</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE MAP & TOOLBAR SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      
+      <!-- Toolbar Controls -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-200 mb-6 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+        
+        <!-- Left: Search Box -->
+        <div class="relative flex-1 max-w-md">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            id="fh-map-search-input" 
+            placeholder="Chercher une ville, wilaya, quartier (ex: Oran, Alger, Sétif...)" 
+            class="w-full pl-10 pr-24 py-2.5 rounded-xl border border-gray-300 bg-gray-50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
+          />
+          <button 
+            type="button" 
+            id="fh-map-search-btn" 
+            class="absolute right-1.5 top-1.5 bottom-1.5 px-3 bg-black hover:bg-neutral-800 text-white rounded-lg text-xs font-bold transition flex items-center justify-center"
+          >
+            Chercher
+          </button>
+        </div>
+
+        <!-- Middle: Filter Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none text-xs font-bold">
+          <button 
+            type="button" 
+            data-map-filter="all" 
+            class="px-3.5 py-2 rounded-xl bg-black text-white hover:opacity-90 transition whitespace-nowrap shadow-sm"
+          >
+            Tous les points
+          </button>
+          <button 
+            type="button" 
+            data-map-filter="demand" 
+            class="px-3.5 py-2 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition whitespace-nowrap"
+          >
+            🔥 Villes en forte demande
+          </button>
+          <button 
+            type="button" 
+            data-map-filter="partner" 
+            class="px-3.5 py-2 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition whitespace-nowrap"
+          >
+            ✅ Points de vente partenaires
+          </button>
+        </div>
+
+        <!-- Right: Geolocation & Request CTA -->
+        <div class="flex items-center gap-3">
+          <button 
+            type="button" 
+            id="fh-geo-btn" 
+            class="px-3.5 py-2.5 rounded-xl border border-gray-300 hover:border-black bg-white text-gray-800 text-xs font-bold flex items-center gap-2 transition hover:shadow-sm"
+            title="Me géolocaliser sur la carte"
+          >
+            <span>📍</span> Autour de moi
+          </button>
+          <button 
+            type="button" 
+            data-open-demand-modal 
+            class="flex-1 md:flex-initial px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 active:scale-95 text-white text-xs font-extrabold uppercase tracking-wide transition shadow-md flex items-center justify-center gap-2"
+          >
+            <span>+</span> Demander dans ma zone
+          </button>
+        </div>
+      </div>
+
+      <!-- Map Card -->
+      <div class="demand-map-container">
+        <!-- Interactive Leaflet Canvas -->
+        <div id="fh-demand-map"></div>
+
+        <!-- Map Floating Legend Overlay -->
+        <div class="absolute bottom-4 left-4 z-[500] bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl shadow-lg border border-gray-200 text-[11px] font-semibold text-gray-700 flex flex-wrap items-center gap-4">
+          <div class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-red-600 ring-2 ring-red-200 inline-block"></span>
+            <span>Demandes communautaires (Cliquez pour voter)</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-emerald-600 ring-2 ring-emerald-200 inline-block"></span>
+            <span>Magasin / Salle partenaire en rayon</span>
+          </div>
+          <div class="hidden sm:inline-block text-gray-400">|</div>
+          <div class="hidden sm:block text-gray-500 italic">💡 Cliquez n'importe où sur la carte pour déposer un vote</div>
+        </div>
+      </div>
+
+      <!-- Explanation Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl font-bold">1</div>
+          <h3 class="text-base font-extrabold text-gray-900">Cliquez ou localisez votre ville</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Recherchez votre quartier ou cliquez directement sur la carte là où vous souhaiteriez pouvoir acheter vos collations F&amp;H au quotidien.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center text-xl font-bold">2</div>
+          <h3 class="text-base font-extrabold text-gray-900">Suggérez un commerce ou une salle</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Donnez-nous le nom de votre club de fitness (Basic-Fit, Fitness Park, salle indépendante) ou supermarché favori pour que nous les contactions directement.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-bold">3</div>
+          <h3 class="text-base font-extrabold text-gray-900">Soyez prévenu(e) en avant-première</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Dès que le contrat de distribution est signé et les premiers cartons livrés, vous recevez un e-mail avec une offre de bienvenue exclusive.
+          </p>
+        </div>
+      </div>
+
+      <!-- B2B Merchant / Gym Owner Banner -->
+      <div class="mt-12 bg-gradient-to-r from-neutral-900 via-black to-neutral-900 text-white p-6 sm:p-8 rounded-2xl border border-neutral-800 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <span class="inline-block px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[11px] font-bold uppercase tracking-wider">
+            Espace Professionnels &amp; Gérants de Salle
+          </span>
+          <h3 class="text-xl sm:text-2xl font-bold">Vous tenez une salle de sport, boutique ou épicerie fine ?</h3>
+          <p class="text-xs sm:text-sm text-neutral-300 max-w-xl">
+            Proposez les barres Peanut Protein et compléments F&amp;H à vos membres avec des marges distributeur attractives et une livraison express sous 24h.
+          </p>
+        </div>
+        <a 
+          href="mailto:pro@ghostlifestyle.com?subject=Devenir%20distributeur%20officiel%20F%26H" 
+          class="shrink-0 px-6 py-3.5 bg-white hover:bg-gray-100 text-black font-extrabold text-xs uppercase tracking-wider rounded-xl transition shadow-lg"
+        >
+          Devenir Revendeur Officiel ➔
+        </a>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- MODAL: REQUEST PRODUCT IN YOUR AREA -->
+  <div id="fh-request-modal" class="fh-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="fh-modal-title">
+    <div class="fh-modal-card">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+        <div>
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-red-600">Demande locale</span>
+          <h3 id="fh-modal-title" class="text-xl font-extrabold text-gray-900">Demander F&amp;H dans votre ville</h3>
+        </div>
+        <button 
+          type="button" 
+          data-close-demand-modal 
+          class="p-2 text-gray-400 hover:text-black rounded-lg transition"
+          aria-label="Fermer la modal"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <form id="fh-demand-form" class="mt-5 space-y-4">
+        <input type="hidden" id="fh-request-coords" name="coords" value="" />
+
+        <!-- City Field -->
+        <div>
+          <label for="fh-request-city" class="block text-xs font-bold text-gray-800 mb-1">
+            Ville / Wilaya / Quartier <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="fh-request-city" 
+            name="city" 
+            autocomplete="address-level2" 
+            required 
+            placeholder="Ex : Alger Centre, Oran Akid Lotfi, Sétif..." 
+            class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
+          />
+        </div>
+
+        <!-- Missing Products Selection -->
+        <div>
+          <label class="block text-xs font-bold text-gray-800 mb-1.5">
+            Quels produits F&amp;H manquent le plus près de chez vous ?
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-gray-200 bg-gray-50/60 hover:bg-gray-100 cursor-pointer transition">
+              <input type="checkbox" name="products" value="Peanut Protein Bar 20 unités" checked class="rounded text-black focus:ring-black" />
+              <span class="font-semibold text-gray-800">🥜 Peanut Protein Bar (Boîte 20 unités)</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-gray-200 bg-gray-50/60 hover:bg-gray-100 cursor-pointer transition">
+              <input type="checkbox" name="products" value="100% Whey Protéine" class="rounded text-black focus:ring-black" />
+              <span class="font-semibold text-gray-800">🥛 100% Whey Protéine</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-gray-200 bg-gray-50/60 hover:bg-gray-100 cursor-pointer transition">
+              <input type="checkbox" name="products" value="Boissons F&amp;H Energy" class="rounded text-black focus:ring-black" />
+              <span class="font-semibold text-gray-800">⚡ Boissons Énergisantes</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-gray-200 bg-gray-50/60 hover:bg-gray-100 cursor-pointer transition">
+              <input type="checkbox" name="products" value="Pre-Workout Legend" class="rounded text-black focus:ring-black" />
+              <span class="font-semibold text-gray-800">🔥 Pre-Workout Booster</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Venue Type & Name -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="fh-venue-type" class="block text-xs font-bold text-gray-800 mb-1">
+              Type de lieu souhaité
+            </label>
+            <select 
+              id="fh-venue-type" 
+              name="venue_type" 
+              class="w-full px-3 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
+            >
+              <option value="Salle de sport / Club de fitness">Salle de sport / Gym</option>
+              <option value="Supermarché / Grande surface">Supermarché / Grande surface</option>
+              <option value="Magasin de nutrition / Diététique">Magasin de nutrition</option>
+              <option value="Supérette / Épicerie de quartier">Supérette de quartier</option>
+              <option value="Autre point de vente">Autre point de vente</option>
+            </select>
+          </div>
+          <div>
+            <label for="fh-venue-name" class="block text-xs font-bold text-gray-800 mb-1">
+              Nom du lieu recommandé
+            </label>
+            <input 
+              type="text" 
+              id="fh-venue-name" 
+              name="venue_name" 
+              placeholder="Ex : Fitness Park, Carrefour, Iron Gym..." 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
+            />
+          </div>
+        </div>
+
+        <!-- Contact info -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <div>
+            <label for="fh-request-name" class="block text-xs font-bold text-gray-800 mb-1">
+              Votre Prénom (optionnel)
+            </label>
+            <input 
+              type="text" 
+              id="fh-request-name" 
+              name="name" 
+              autocomplete="given-name" 
+              placeholder="Ex : Karim" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
+            />
+          </div>
+          <div>
+            <label for="fh-request-email" class="block text-xs font-bold text-gray-800 mb-1">
+              Votre E-mail (pour l'alerte d'arrivée) <span class="text-red-500">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="fh-request-email" 
+              name="email" 
+              autocomplete="email" 
+              required 
+              placeholder="nom@exemple.com" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
+            />
+          </div>
+        </div>
+
+        <p class="text-[11px] text-gray-500 leading-normal">
+          * Vous recevrez uniquement un e-mail d'alerte lorsque les produits seront officiellement disponibles dans cette zone. Pas de spam.
+        </p>
+
+        <!-- Submit Button -->
+        <div class="pt-2">
+          <button 
+            type="submit" 
+            class="w-full py-3.5 px-4 bg-black hover:bg-neutral-800 active:scale-[0.99] text-white font-extrabold text-sm uppercase tracking-wider rounded-xl transition duration-200 shadow-lg flex items-center justify-center gap-2"
+          >
+            <span>🚀</span> Enregistrer ma demande &amp; voter
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CELEBRATION MODAL (CONFIRMATION OF VOTE) -->
+  <div id="fh-celebration-modal" class="fh-modal-overlay" role="dialog" aria-modal="true">
+    <div class="fh-modal-card text-center py-8 px-6 space-y-4 max-w-md">
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto shadow-inner">
+        🎉
+      </div>
+      <h3 class="text-2xl font-black text-gray-900 tracking-tight">Demande enregistrée !</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">
+        Votre vote pour <strong id="fh-confirm-city-name" class="text-gray-900">votre ville</strong> a bien été comptabilisé. 
+        Cette zone compte désormais <span id="fh-confirm-votes-count" class="font-bold text-red-600">1</span> votes communautaires !
+      </p>
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 text-xs text-gray-600">
+        Notre équipe commerciale contacte les distributeurs dès que le seuil de demandes est franchi. Vous serez notifié(e) par e-mail en priorité !
+      </div>
+      <div class="pt-2 flex flex-col gap-2">
+        <button 
+          type="button" 
+          onclick="document.getElementById('fh-celebration-modal').classList.remove('active')" 
+          class="w-full py-3 bg-black hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition"
+        >
+          Retourner à la carte
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-gray-200 py-10 px-4 mt-16 text-center text-xs text-gray-500 space-y-4">
+    <div class="flex justify-center">
+      <img src="cdn/shop/files/fh-logo.png" alt="F&amp;H" class="h-8 w-auto object-contain opacity-75" />
+    </div>
+    <p>© 2026 F&amp;H (Fitness &amp; Health). Tous droits réservés.</p>
+    <div class="flex justify-center gap-6 font-medium">
+      <a href="index.html" class="hover:text-black">Accueil</a>
+      <a href="collections/protein.html" class="hover:text-black">Catalogue</a>
+      <a href="ou-nous-trouver.html" class="hover:text-black font-bold text-black">Où nous trouver</a>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Custom Demand Map Engine -->
+  <script src="assets/demand-map.js"></script>
+
+</body>
+</html>

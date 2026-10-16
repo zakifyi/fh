@@ -1,0 +1,268 @@
+/* F&H Demand Map Styles */
+
+.demand-map-container {
+  position: relative;
+  width: 100%;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  background: #f8f9fa;
+}
+
+#fh-demand-map {
+  width: 100%;
+  height: 580px;
+  min-height: 480px;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  #fh-demand-map {
+    height: 440px;
+    min-height: 380px;
+  }
+}
+
+/* Custom Leaflet Marker Pins */
+.fh-pulse-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.fh-pulse-marker .pin-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  border: 2px solid #ffffff;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.fh-pulse-marker:hover .pin-badge {
+  transform: scale(1.12) translateY(-2px);
+  background: #111111;
+}
+
+.fh-pulse-marker.partner .pin-badge {
+  background: #059669;
+  border-color: #ffffff;
+}
+
+.fh-pulse-marker.user-voted .pin-badge {
+  background: #dc2626;
+  border-color: #ffffff;
+}
+
+.fh-pulse-marker .pulse-ring {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.4);
+  animation: fh-pulse-animation 2s infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.fh-pulse-marker.partner .pulse-ring {
+  background: rgba(5, 150, 105, 0.4);
+}
+
+@keyframes fh-pulse-animation {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Custom Leaflet Popups */
+.leaflet-popup-content-wrapper {
+  border-radius: 16px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  font-family: inherit !important;
+}
+
+.leaflet-popup-tip-container {
+  margin-top: -1px !important;
+}
+
+.fh-map-popup {
+  padding: 16px 18px;
+  min-width: 240px;
+  max-width: 280px;
+}
+
+.fh-map-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.fh-map-popup-badge {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+
+.fh-map-popup-badge.demand {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.fh-map-popup-badge.partner {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.fh-map-popup-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+
+.fh-map-popup-sub {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.fh-map-popup-info {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 11px;
+  color: #4b5563;
+  margin-bottom: 12px;
+  border: 1px solid #f3f4f6;
+}
+
+.fh-map-popup-info strong {
+  color: #111827;
+}
+
+.fh-map-popup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 9px 12px;
+  background: #000000;
+  color: #ffffff !important;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.fh-map-popup-btn:hover {
+  background: #222222;
+  transform: translateY(-1px);
+}
+
+.fh-map-popup-btn:active {
+  transform: scale(0.98);
+}
+
+.fh-map-popup-btn.voted {
+  background: #059669;
+}
+
+/* Modal and Drawer Overlay */
+.fh-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.fh-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fh-modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  transform: scale(0.95) translateY(10px);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 28px 24px;
+}
+
+.fh-modal-overlay.active .fh-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+/* Toast Notification */
+.fh-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #000000;
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  z-index: 999999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fh-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
