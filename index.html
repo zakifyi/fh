@@ -1095,7 +1095,7 @@ COMPLÉMENTS
 </section>
 <section class="shopify-section section" id="shopify-section-predictive-search"><script defer="" src="cdn/shop/t/771/assets/predictive-search.js?v=182909019826779017851784845731"></script>
 <script defer="" src="cdn/shop/t/771/assets/carousel.js?v=110198922621471479311784845729"></script>
-<predictive-search aria-label="Recherche prédictive" aria-modal="true" class="hidden opacity-0 overflow-y-scroll transition-opacity duration-500 top-0 h-full md:h-auto md:top-announcementHeight px-8 bg-primaryLight w-screen overflow-hidden z-20" data-search-url="/search" id="predictiveSearch" role="dialog">
+<predictive-search aria-label="Recherche prédictive" aria-modal="true" class="hidden opacity-0 overflow-y-scroll transition-opacity duration-500 top-0 h-full md:h-auto md:top-announcementHeight px-8 bg-primaryLight w-screen overflow-hidden z-20" data-search-url="search.html" id="predictiveSearch" role="dialog">
 <div aria-live="assertive" class="results-count sr-only" data-count=""></div>
 <div class="hidden md:flex items-center justify-center py-8 relative">
 <div class="w-24 md:w-28 flex items-center justify-center">
@@ -4663,6 +4663,160 @@ $(document).ajaxSuccess(function(event, xhr, settings) {
       }
     });
   });
+</script>
+
+
+<!-- Search Modal and Live Search Controller -->
+<script>
+(function() {
+  function initSearchFix() {
+    const searchModal = document.getElementById('predictiveSearch');
+    if (!searchModal) return;
+
+    // Helper to open search modal
+    function openSearchModal(e) {
+      if (e) e.preventDefault();
+      
+      // Close mobile menu drawer if open
+      const mobileDrawer = document.querySelector('[data-mobile-drawer]');
+      if (mobileDrawer) {
+        mobileDrawer.classList.add('-translate-x-full');
+        mobileDrawer.setAttribute('inert', '');
+      }
+
+      searchModal.classList.remove('hidden');
+      searchModal.classList.add('fixed');
+      searchModal.setAttribute('aria-hidden', 'false');
+      searchModal.setAttribute('aria-modal', 'true');
+      
+      setTimeout(() => {
+        searchModal.classList.remove('opacity-0');
+        document.body.classList.add('overlay', 'offset');
+        const input = searchModal.querySelector('input[data-search-input], #predictiveSearchInput');
+        if (input) {
+          input.focus();
+        }
+      }, 50);
+    }
+
+    // Helper to close search modal
+    function closeSearchModal(e) {
+      if (e) e.preventDefault();
+      searchModal.classList.add('opacity-0');
+      document.body.classList.remove('overlay', 'offset');
+      searchModal.setAttribute('aria-hidden', 'true');
+      setTimeout(() => {
+        searchModal.classList.remove('fixed');
+        searchModal.classList.add('hidden');
+      }, 300);
+    }
+
+    // Bind triggers
+    document.querySelectorAll('[data-search-mobile], [data-search-desk], a[href*="search.html"], a[href="/search"]').forEach(btn => {
+      // Avoid binding the submit button inside the search form
+      if (btn.closest('predictive-search')) return;
+      btn.addEventListener('click', openSearchModal);
+    });
+
+    // Also delegated click for dynamic triggers
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-search-mobile], [data-search-desk], [data-mobile-drawer] a[href*="search"]');
+      if (trigger) {
+        openSearchModal(e);
+        return;
+      }
+      const closeBtn = e.target.closest('[data-close-search]');
+      if (closeBtn) {
+        closeSearchModal(e);
+        return;
+      }
+    });
+
+    // Live search filtering on the demo catalog
+    const searchInput = searchModal.querySelector('input[data-search-input], #predictiveSearchInput');
+    const trendingWrapper = searchModal.querySelector('[data-trending-search-wrapper]');
+    const resultsWrapper = searchModal.querySelector('[data-predictive-search-wrapper]');
+
+    const CATALOG = [
+      { title: "F&H® PEANUT PROTEIN BAR | 20 UNITÉS", type: "BARRES PROTÉINÉES", price: "1,995 DA", img: "cdn/shop/files/peanut-protein-bar.png" },
+      { title: "F&H® WHEY COLLAGEN BAR | 20 UNITÉS", type: "BARRES PROTÉINÉES", price: "5,000 DA", img: "cdn/shop/files/whey-collagen-bar.png" },
+      { title: "F&H® WHEY BAR 30% NOISETTE", type: "BARRES PROTÉINÉES", price: "2,500 DA", img: "cdn/shop/files/whey-bar-30-noisette.png" },
+      { title: "F&H® CRÉATINE MONOHYDRATE 100% | 300G", type: "CRÉATINE", price: "3,200 DA", img: "cdn/shop/files/SOURSTRIPSAppleberryCreatine.webp" },
+      { title: "F&H® 100% WHEY PROTÉINE | SAVEUR FRAISES", type: "WHEY PROTÉINE", price: "6,200 DA", img: "cdn/shop/files/LEGENDV5xSOURSTRIPSAppleberry.webp" },
+      { title: "F&H® MONODOSE FAST MASS GAINER | CHOCOLAT", type: "MASS GAINERS", price: "200 DA", img: "cdn/shop/files/CreatineStrawbango.webp" },
+      { title: "F&H® MONODOSE FAST MASS GAINER | BANANE", type: "MASS GAINERS", price: "200 DA", img: "cdn/shop/files/HydrationCaseMangoColada.webp" },
+      { title: "F&H® PÂTE À TARTINER PROTÉINÉE | 500G", type: "PÂTE À TARTINER", price: "850 DA", img: "cdn/shop/files/WheyLuckyCharms_205f8977-795b-4e90-9f93-060ae7f91d5a.webp" },
+      { title: "F&H® GRANOLA ENERGY PROTEIN BOOSTED | 300G", type: "GRANOLA", price: "420 DA", img: "cdn/shop/files/HYDRATION_ORANGE_SQUEEZE_800x.webp" },
+      { title: "F&H® PRO BAR MASS GAINER | 20 UNITÉS", type: "BARRES", price: "4,500 DA", img: "cdn/shop/files/SourPinkLemonadePumpFront.webp" },
+      { title: "F&H® PRO BAR WHEY CRÉATINE | 20 UNITÉS", type: "BARRES", price: "4,500 DA", img: "cdn/shop/files/StrawbangoMargaritaPumpFront.webp" },
+      { title: "F&H® CEREAL BAR CHOCOLAT | 20 UNITÉS", type: "BARRES ÉNERGÉTIQUES", price: "1,200 DA", img: "cdn/shop/files/HYDRATION_STICK_ICE_TEA_LEMONADE_SINGLE.webp" },
+      { title: "F&H® ENERGY BAR | 20 UNITÉS", type: "BARRES ÉNERGÉTIQUES", price: "2,000 DA", img: "cdn/shop/files/HYDRATION_LEMON_LIME_800x.webp" }
+    ];
+
+    // Determine correct product link and image path depending on current location
+    const isSubdir = window.location.pathname.includes('/collections/') || window.location.pathname.includes('/products/');
+    const isDeepSubdir = window.location.pathname.includes('/collections/products/');
+    const basePath = isDeepSubdir ? '../../' : (isSubdir ? '../' : '');
+    const productUrl = basePath + 'products/peanut-protein-bar-20-unites.html';
+
+    if (searchInput && resultsWrapper && trendingWrapper) {
+      searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) {
+          trendingWrapper.style.display = '';
+          resultsWrapper.style.display = 'none';
+          resultsWrapper.innerHTML = '';
+          return;
+        }
+
+        const matches = CATALOG.filter(p => 
+          p.title.toLowerCase().includes(query) || 
+          p.type.toLowerCase().includes(query)
+        );
+
+        trendingWrapper.style.display = 'none';
+        resultsWrapper.style.display = 'grid';
+
+        if (matches.length === 0) {
+          resultsWrapper.innerHTML = `
+            <div class="col-span-full py-12 text-center">
+              <p class="font-heading uppercase text-2xl text-gray-500">Aucun produit trouvé pour "${searchInput.value}"</p>
+              <p class="text-sm text-gray-400 mt-2">Essayez avec un autre mot-clé comme "Barre", "Whey", ou "Créatine".</p>
+            </div>
+          `;
+          return;
+        }
+
+        resultsWrapper.innerHTML = matches.map(prod => `
+          <div class="pb-9" data-product-tile="">
+            <div class="flex flex-col">
+              <div class="relative">
+                <a class="product-tile-image-wrapper bg-secondaryLight p-5 peer group relative aspect-[4/5] flex items-center justify-center w-full overflow-hidden" href="${productUrl}">
+                  <img alt="${prod.title}" class="block object-contain w-full h-full transform transition duration-500 group-hover:scale-105" height="800" loading="lazy" src="${basePath + prod.img}" width="800"/>
+                </a>
+              </div>
+              <a href="${productUrl}">
+                <span aria-level="3" class="block pt-5 h4 px-4 md:px-0 font-heading" role="heading">${prod.title}</span>
+              </a>
+              <strong class="py-2 h6 px-4 md:px-0 uppercase text-gray-500 text-xs">
+                ${prod.type}
+              </strong>
+              <span class="h5 px-4 md:px-0 font-bold text-black">
+                ${prod.price}
+              </span>
+            </div>
+          </div>
+        `).join('');
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSearchFix);
+  } else {
+    initSearchFix();
+  }
+})();
 </script>
 
 </body>
