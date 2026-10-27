@@ -16,6 +16,13 @@
 <meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="F&amp;H"/>
+<link rel="manifest" href="../manifest.webmanifest"/>
+<link rel="apple-touch-icon" href="../cdn/shop/files/fh-favicon.png?v=3"/>
+<script src="../assets/pwa-standalone.js"></script>
 <meta content="" name="theme-color"/>
 <meta content="F&amp;H" property="og:site_name"/>
 <meta content="https://zakifyi.github.io/fh/collections/all.html" property="og:url"/>
@@ -675,7 +682,7 @@ first.parentNode.insertBefore(script, first);
 <line stroke="currentColor" x1="8.14288" x2="19" y1="11.3572" y2="11.3572"></line>
 </svg>
 </button>
-<a aria-label="Ouvrir la recherche" class="lg:hidden block w-5 h-5 my-auto" data-search-mobile="" href="search.html">
+<a aria-label="Ouvrir la recherche" class="lg:hidden block w-5 h-5 my-auto" data-search-mobile="" href="../search.html">
 <svg aria-hidden="true" height="100%" viewbox="0 0 20 20" width="100%" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <clippath id="s20dhzipga">
@@ -866,7 +873,7 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
 </a>
 </div>
 <ul class="flex gap-5 items-center justify-end flex-grow py-3.5 md:py-8">
-<li><a aria-label="Rechercher" class="hidden md:block w-5 h-5 md:animation-levitate md:hover:text-primaryDark" data-search-desk="" href="search.html" role="button">
+<li><a aria-label="Rechercher" class="hidden md:block w-5 h-5 md:animation-levitate md:hover:text-primaryDark" data-search-desk="" href="../search.html" role="button">
 <svg aria-hidden="true" height="100%" viewbox="0 0 20 20" width="100%" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <clippath id="s20dhzipga">
@@ -876,14 +883,14 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
 <path d="m20 18.868-6.489-6.5a7.6 7.6 0 1 0-1.127 1.135L18.869 20zM7.6 13.612a6.005 6.005 0 1 1 6-6 6.008 6.008 0 0 1-6 6" data-name="Path 3" fill="currentColor" style="clip-path:url(index.html)"></path>
 </svg>
 </a></li>
-<li><a aria-label="Connexion ou création de compte" class="block w-5 h-5 md:animation-levitate md:hover:text-primaryDark" href="account/register.html" role="button">
+<li><a aria-label="Connexion ou création de compte" class="block w-5 h-5 md:animation-levitate md:hover:text-primaryDark" href="../account/register.html" data-action="open-register" role="button">
 <svg aria-hidden="true" fill="currentColor" height="100%" id="no_stroke" viewbox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
 </a></li>
 </ul>
 <!-- start mobile menu drawer -->
 <div aria-label="Main Menu" aria-modal="true" class="fixed top-0 left-0 h-full w-full bg-primaryLight text-primaryDark overflow-y-scroll lg:hidden transform -translate-x-full transition duration-500" data-mobile-drawer="" inert="" role="dialog">
 <div class="flex items-center bg-primaryLight justify-between py-10 mx-10 sticky top-0 z-10">
-<a class="flex items-center justify-start" href="search.html">
+<a class="flex items-center justify-start" href="../search.html">
 <span class="block h-5 w-5">
 <svg aria-hidden="true" height="100%" viewbox="0 0 20 20" width="100%" xmlns="http://www.w3.org/2000/svg">
 <defs>
@@ -911,13 +918,13 @@ SNACKS
 </li>
 <!-- 2. BOISSONS -->
 <li>
-<a class="button flex items-center font-heading uppercase text-4xl" href="all.html">
+<a class="button flex items-center font-heading uppercase text-4xl" href="energy.html">
 BOISSONS
 </a>
 </li>
 <!-- 3. COMPLÉMENTS -->
 <li>
-<a class="button flex items-center font-heading uppercase text-4xl" href="all.html">
+<a class="button flex items-center font-heading uppercase text-4xl" href="supplements.html">
 COMPLÉMENTS
 </a>
 </li>
@@ -934,7 +941,7 @@ COMPLÉMENTS
 </ul>
 <div class="sticky bottom-0 bg-primaryLight pb-10">
 <hr class="mt-10"/>
-<a class="flex items-center w-full py-5 px-10 text-xs" data-action="close-menu" href="account/register.html">
+<a class="flex items-center w-full py-5 px-10 text-xs" data-action="close-menu" href="../account/register.html" data-action="open-register">
 <span class="block w-6 h-6 mr-4">
 <svg aria-hidden="true" fill="currentColor" height="100%" id="no_stroke" viewbox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
 </span>
@@ -988,16 +995,16 @@ COMPLÉMENTS
 <div class="overflow-hidden transition-all duration-500" data-accordion-content="shop-1" data-content-default="open">
 <ul class="pt-7 flex flex-col gap-2 text-secondaryDark">
 <li>
-<a href="new-supplements.html">WHAT'S NEW</a>
+<a href="../collections/supplements.html">WHAT'S NEW</a>
 <li>
 <li>
 <a href="bundles.html">BUNDLES</a>
 <li>
 <li>
-<a href="../pages/collection-bundle.html">BUILD YOUR OWN BUNDLE</a>
+<a href="bundles.html">BUILD YOUR OWN BUNDLE</a>
 <li>
 <li>
-<a href="samples.html">SAMPLES</a>
+<a href="../collections/all.html">SAMPLES</a>
 <li>
 <li>
 <a href="supplements.html">TOUT VOIR</a>
@@ -1019,19 +1026,19 @@ COMPLÉMENTS
 <div class="overflow-hidden transition-all duration-500" data-accordion-content="by-goal-2" data-content-default="closed" style="height: 0;">
 <ul class="pt-7 flex flex-col gap-2 text-secondaryDark">
 <li>
-<a href="build-muscle.html">BUILD MUSCLE</a>
+<a href="../collections/protein.html">BUILD MUSCLE</a>
 <li>
 <li>
 <a href="energy.html">ENERGY &amp; ENDURANCE</a>
 <li>
 <li>
-<a href="recovery.html">RECOVERY</a>
+<a href="../collections/supplements.html">RECOVERY</a>
 <li>
 <li>
-<a href="weight-management.html">WEIGHT MANAGEMENT</a>
+<a href="../collections/all.html">WEIGHT MANAGEMENT</a>
 <li>
 <li>
-<a href="wellness.html">WELLNESS</a>
+<a href="../collections/supplements.html">WELLNESS</a>
 <li>
 </li></li></li></li></li></li></li></li></li></li></ul>
 </div>
@@ -1079,7 +1086,7 @@ COMPLÉMENTS
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">Packs Économiques</span>
 </a>
-<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="new-supplements.html">
+<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="../collections/supplements.html">
 <img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp?v=1788297088&amp;width=600" srcset="cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp?v=1788297088&amp;width=352=352 35cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp?v=1788297088&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">NOUVEAUTÉS SUPPLÉMENTS</span>
@@ -1122,22 +1129,22 @@ COMPLÉMENTS
 <div class="overflow-hidden transition-all duration-500" data-accordion-content="the-brand-1" data-content-default="open">
 <ul class="pt-7 flex flex-col gap-2 text-secondaryDark">
 <li>
-<a href="../pages/ghost-story.html">OUR STORY</a>
+<a href="all.html">OUR STORY</a>
 <li>
 <li>
-<a href="../blogs/meet-the-family.html">MEET THE FAM</a>
+<a href="all.html">MEET THE FAM</a>
 <li>
 <li>
-<a href="../pages/our-impact.html">OUR IMPACT</a>
+<a href="all.html">OUR IMPACT</a>
 <li>
 <li>
-<a href="../blogs/ghost-hq.html">F&amp;H BLOG</a>
+<a href="all.html">F&amp;H BLOG</a>
 <li>
 <li>
 <a href="all.html">TOUT VOIR</a>
 <li>
 <li>
-<a href="tradingcards.html">TRADING CARDS</a>
+<a href="../collections/all.html">TRADING CARDS</a>
 <li>
 </li></li></li></li></li></li></li></li></li></li></li></li></ul>
 </div>
@@ -1147,22 +1154,22 @@ COMPLÉMENTS
 <p a="" class="sr-only">This is a carousel without non-rotating slides. Use Next and Previous buttons to navigate, or jump to a slide with the slide dots.</p>
 <a class="skip-carousel" href="../index.html#the-brand-end-of-carousel" tabindex="0">Skip carousel</a>
 <div class="swiper-wrapper">
-<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="https://drinkghost.com/pages/energy">
+<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="energy.html">
 <img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Energy.png?v=1757622600&amp;width=600" srcset="cdn/shop/files/Energy.png?v=1757622600&amp;width=352=352 35cdn/shop/files/Energy.png?v=1757622600&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H ENERGY</span>
 </a>
-<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="https://drinkghost.com/pages/hydration">
+<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="energy.html">
 <img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Hydration.png?v=1757622677&amp;width=600" srcset="cdn/shop/files/Hydration.png?v=1757622677&amp;width=352=352 35cdn/shop/files/Hydration.png?v=1757622677&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H HYDRATION</span>
 </a>
-<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="../pages/ghost-protein-bars.html">
+<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="all.html">
 <img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="../cdn/shop/files/Protein_Bars_1.png?v=1757622165&amp;width=600" srcset="cdn/shop/files/Protein_Bars_1.png?v=1757622165&amp;width=352=352 35cdn/shop/files/Protein_Bars_1.png?v=1757622165&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H PROTEIN BARS</span>
 </a>
-<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="../pages/ghost-protein-cereal.html">
+<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="all.html">
 <img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="809" loading="lazy" src="../cdn/shop/files/ghost-cereal-2.png?v=1715815969&amp;width=600" srcset="cdn/shop/files/ghost-cereal-2.png?v=1715815969&amp;width=352=352 35cdn/shop/files/ghost-cereal-2.png?v=1715815969&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H PROTEIN CEREAL</span>

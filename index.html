@@ -16,6 +16,13 @@
 <meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="F&amp;H"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="apple-touch-icon" href="cdn/shop/files/fh-favicon.png?v=3"/>
+<script src="assets/pwa-standalone.js"></script>
 <meta content="" name="theme-color"/>
 <meta content="F&amp;H" property="og:site_name"/>
 <meta content="https://www.ghostlifestyle.com/" property="og:url"/>
@@ -815,13 +822,13 @@ SNACKS
 </li>
 <!-- 2. BOISSONS -->
 <li>
-<a class="button flex items-center font-heading uppercase text-4xl" href="collections/all.html">
+<a class="button flex items-center font-heading uppercase text-4xl" href="collections/energy.html">
 BOISSONS
 </a>
 </li>
 <!-- 3. COMPLÉMENTS -->
 <li>
-<a class="button flex items-center font-heading uppercase text-4xl" href="collections/all.html">
+<a class="button flex items-center font-heading uppercase text-4xl" href="collections/supplements.html">
 COMPLÉMENTS
 </a>
 </li>
@@ -892,16 +899,16 @@ COMPLÉMENTS
 <div class="overflow-hidden transition-all duration-500" data-accordion-content="shop-1" data-content-default="open">
 <ul class="pt-7 flex flex-col gap-2 text-secondaryDark">
 <li>
-<a href="collections/new-supplements.html">WHAT'S NEW</a>
+<a href="collections/supplements.html">WHAT'S NEW</a>
 <li>
 <li>
 <a href="collections/bundles.html">BUNDLES</a>
 <li>
 <li>
-<a href="pages/collection-bundle.html">BUILD YOUR OWN BUNDLE</a>
+<a href="collections/bundles.html">BUILD YOUR OWN BUNDLE</a>
 <li>
 <li>
-<a href="collections/samples.html">SAMPLES</a>
+<a href="collections/all.html">SAMPLES</a>
 <li>
 <li>
 <a href="collections/supplements.html">TOUT VOIR</a>
@@ -923,19 +930,19 @@ COMPLÉMENTS
 <div class="overflow-hidden transition-all duration-500" data-accordion-content="by-goal-2" data-content-default="closed" style="height: 0;">
 <ul class="pt-7 flex flex-col gap-2 text-secondaryDark">
 <li>
-<a href="collections/build-muscle.html">BUILD MUSCLE</a>
+<a href="collections/protein.html">BUILD MUSCLE</a>
 <li>
 <li>
 <a href="collections/energy.html">ENERGY &amp; ENDURANCE</a>
 <li>
 <li>
-<a href="collections/recovery.html">RECOVERY</a>
+<a href="collections/supplements.html">RECOVERY</a>
 <li>
 <li>
-<a href="collections/weight-management.html">WEIGHT MANAGEMENT</a>
+<a href="collections/all.html">WEIGHT MANAGEMENT</a>
 <li>
 <li>
-<a href="collections/wellness.html">WELLNESS</a>
+<a href="collections/supplements.html">WELLNESS</a>
 <li>
 </li></li></li></li></li></li></li></li></li></li></ul>
 </div>
@@ -983,7 +990,7 @@ COMPLÉMENTS
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">Packs Économiques</span>
 </a>
-<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="collections/new-supplements.html">
+<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="collections/supplements.html">
 <img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp?v=1788297088&amp;width=600" srcset="cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp?v=1788297088&amp;width=352=352 35cdn/shop/files/LEGEND_SOUR_STRIPS_Appleberry_4.webp?v=1788297088&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">NOUVEAUTÉS SUPPLÉMENTS</span>
@@ -1026,22 +1033,22 @@ COMPLÉMENTS
 <div class="overflow-hidden transition-all duration-500" data-accordion-content="the-brand-1" data-content-default="open">
 <ul class="pt-7 flex flex-col gap-2 text-secondaryDark">
 <li>
-<a href="pages/ghost-story.html">OUR STORY</a>
+<a href="collections/all.html">OUR STORY</a>
 <li>
 <li>
-<a href="blogs/meet-the-family.html">MEET THE FAM</a>
+<a href="collections/all.html">MEET THE FAM</a>
 <li>
 <li>
-<a href="pages/our-impact.html">OUR IMPACT</a>
+<a href="collections/all.html">OUR IMPACT</a>
 <li>
 <li>
-<a href="blogs/ghost-hq.html">F&amp;H BLOG</a>
+<a href="collections/all.html">F&amp;H BLOG</a>
 <li>
 <li>
 <a href="collections/all.html">TOUT VOIR</a>
 <li>
 <li>
-<a href="tradingcards.html">TRADING CARDS</a>
+<a href="collections/all.html">TRADING CARDS</a>
 <li>
 </li></li></li></li></li></li></li></li></li></li></li></li></ul>
 </div>
@@ -1051,22 +1058,22 @@ COMPLÉMENTS
 <p a="" class="sr-only">This is a carousel without non-rotating slides. Use Next and Previous buttons to navigate, or jump to a slide with the slide dots.</p>
 <a class="skip-carousel" href="index.html#the-brand-end-of-carousel" tabindex="0">Skip carousel</a>
 <div class="swiper-wrapper">
-<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="https://drinkghost.com/pages/energy">
+<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="collections/energy.html">
 <img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="cdn/shop/files/Energy.png?v=1757622600&amp;width=600" srcset="cdn/shop/files/Energy.png?v=1757622600&amp;width=352=352 35cdn/shop/files/Energy.png?v=1757622600&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H ENERGY</span>
 </a>
-<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="https://drinkghost.com/pages/hydration">
+<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="collections/energy.html">
 <img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="cdn/shop/files/Hydration.png?v=1757622677&amp;width=600" srcset="cdn/shop/files/Hydration.png?v=1757622677&amp;width=352=352 35cdn/shop/files/Hydration.png?v=1757622677&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H HYDRATION</span>
 </a>
-<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="collections/barres.html">
+<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="collections/all.html">
 <img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="750" loading="lazy" src="cdn/shop/files/Protein_Bars_1.png?v=1757622165&amp;width=600" srcset="cdn/shop/files/Protein_Bars_1.png?v=1757622165&amp;width=352=352 35cdn/shop/files/Protein_Bars_1.png?v=1757622165&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H PROTEIN BARS</span>
 </a>
-<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="pages/ghost-protein-cereal.html">
+<a class="swiper-slide flex flex-col relative w-full aspect-[4/5] p-5 items-center justify-end text-primaryLight" href="collections/all.html">
 <img alt="" class="absolute top-0 left-0 w-full h-full object-cover object-center" height="809" loading="lazy" src="cdn/shop/files/ghost-cereal-2.png?v=1715815969&amp;width=600" srcset="cdn/shop/files/ghost-cereal-2.png?v=1715815969&amp;width=352=352 35cdn/shop/files/ghost-cereal-2.png?v=1715815969&amp;width=600idth=600 600w" width="600"/>
 <span aria-hidden="true" class="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.3)] z-10"></span>
 <span class="z-10 text-xl font-bold uppercase md:hover:text-accent1 tracking-tighter">F&amp;H PROTEIN CEREAL</span>
@@ -1345,11 +1352,11 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
   <div class="pb-9" data-product-tile="">
     <div class="flex flex-col">
       <div class="relative">
-        <a class="product-tile-image-wrapper bg-secondaryLight p-7 peer group relative aspect-[4/5] flex items-center justify-center w-full overflow-hidden" href="collections/products/peanut-protein-bar-20-unites.html">
+        <a class="product-tile-image-wrapper bg-secondaryLight p-7 peer group relative aspect-[4/5] flex items-center justify-center w-full overflow-hidden" href="products/peanut-protein-bar-20-unites.html">
           <img alt="F&amp;H PEANUT PROTEIN BAR" class="block object-contain w-full h-full transform transition duration-500 group-hover:scale-105" height="800" loading="lazy" src="cdn/shop/files/peanut-protein-bar.png" width="800"/>
         </a>
       </div>
-      <a href="collections/products/peanut-protein-bar-20-unites.html">
+      <a href="products/peanut-protein-bar-20-unites.html">
         <span aria-level="3" class="block pt-5 h4 px-4 md:px-0" role="heading">F&amp;H® PEANUT PROTEIN BAR</span>
       </a>
       <strong class="py-3 h6 px-4 md:px-0 uppercase text-gray-500">
@@ -1437,11 +1444,11 @@ M7918 69 c-10 -5 -18 -19 -18 -29 0 -28 46 -27 60 0 19 35 -5 51 -42 29z"></path>
     <div class="pb-9" data-product-tile="">
       <div class="flex flex-col">
         <div class="relative">
-          <a class="product-tile-image-wrapper bg-secondaryLight p-7 peer group relative aspect-[4/5] flex items-center justify-center w-full overflow-hidden" href="collections/products/peanut-protein-bar-20-unites.html">
+          <a class="product-tile-image-wrapper bg-secondaryLight p-7 peer group relative aspect-[4/5] flex items-center justify-center w-full overflow-hidden" href="products/peanut-protein-bar-20-unites.html">
             <img alt="F&amp;H PEANUT PROTEIN BAR" class="block object-contain w-full h-full" height="800" loading="lazy" src="cdn/shop/files/peanut-protein-bar.png" width="800"/>
           </a>
         </div>
-        <a href="collections/products/peanut-protein-bar-20-unites.html">
+        <a href="products/peanut-protein-bar-20-unites.html">
           <span aria-level="3" class="block pt-5 h4 px-4 md:px-0" role="heading">F&amp;H® PEANUT PROTEIN BAR</span>
         </a>
         <strong class="py-3 h6 px-4 md:px-0 uppercase text-gray-500">BARRES PROTÉINÉES</strong>

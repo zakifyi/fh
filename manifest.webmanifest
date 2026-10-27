@@ -1,0 +1,27 @@
+{
+  "name": "F&H | Fitness & Health",
+  "short_name": "F&H",
+  "description": "F&H Fitness & Health - Nutrition sportive, snacks protéinés & compléments",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "cdn/shop/files/fh-favicon.png?v=3",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "cdn/shop/files/fh-favicon.png?v=3",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
